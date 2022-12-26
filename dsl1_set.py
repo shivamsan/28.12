@@ -1,8 +1,8 @@
 def TakeInput(Sport):
  players = int(input(f'Enter how many players playing {Sport}:'))
- array = ['name'] * players
+ array = []
  for i in range(0,players):
-    array[i]=input("Enter the name of players:")
+    array.append(input("Enter the name of players:"))
  return array
 a=TakeInput("Cricket")
 c=TakeInput("Football")
