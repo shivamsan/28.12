@@ -1,51 +1,57 @@
 #include<iostream>
 using namespace std;
 
-int main()
-
+int binary(int a[], int n , int key)
 {
-    int a[100],n,i,key,ub,lb,mid,flag=0;
-    cout << "enter total number of SE students numbers "<<endl;
-    cin >> n;
-
-    
-    cout<<"Enter the roll number of SE students"<<endl;
-    for (i=0;i<n;i++)
+    int s=0,flag =0;
+    int e=n;
+    while(s<=e)
     {
-        cin >> a[i];
+        int mid = (s+e)/2;
 
-    }
-    cout <<"enter roll no of student to be search"<<endl;
-    cin>>key;
-
-    lb = 0,ub =n;
-    while(ub<=n)
-    {
-
-        mid = (lb+ub)/2;
-        if (key == a[mid])
+        if(a[mid]==key)
         {
-            cout<< "student found at position: "<<(mid+1)<<endl;
-            flag =1;
+            cout<<"Found at "<<(mid+1)<<"th position"<<endl;
+            
+            flag = 1;
             break;
+            
+        }
+        else if(a[mid]>key)
+        {
+            e = mid-1;
+
         }
         else
         {
-            if(key<a[mid])
-            {
-                ub = mid-1;
-
-            }
-            if (key>a[mid])
-            {
-                ub = mid +1;
-            }
+            s = mid+1;
         }
     }
-    if (flag==0)
+    if(flag==0)
     {
-        cout<<"roll no not found"<<endl;
-
+        cout<<"student no found"<<endl;
     }
+
+}
+
+int main()
+{
+    int n;
+    cout<<"Enter number of students : "<<endl;
+    cin>>n;
+    
+    int a[n];
+    cout<<"Enter roll num of students :"<<endl;
+    for (int i =0;i<n;i++)
+    {
+        cin>>a[i];
+    }
+
+    int key;
+    cout<<"Enter roll no of student to search : "<<endl;
+    cin>>key;
+
+    binary(a,n,key);
     return 0;
+
 }
