@@ -1,10 +1,12 @@
 #include <iostream>
 using namespace std;
-#define n 100
+
+#define n 10
 
 
 class Stack
 {
+   
    int top=-1;
    int stack[n];
 
@@ -13,7 +15,8 @@ public:
 void push(int val) {
    if(top>=n-1)
    cout<<"Stack Overflow"<<endl;
-   else {
+   else 
+   {
       top++;
       stack[top]=val;
    }
@@ -27,13 +30,14 @@ void pop() {
    }
 }
 void display() {
-   if(top>=0) {
-      cout<<"Stack elements are:";
+   if(top<=-1)
+   cout<<"Stack Underflow"<<endl;
+   else {
+      cout<<"Stack elements are: ";
       for(int i=top; i>=0; i--)
       cout<<stack[i]<<" ";
       cout<<endl;
-   } else
-   cout<<"Stack is empty";
+   }
 }
 
 
@@ -59,6 +63,7 @@ int main() {
          }
          case 2: {
             s.pop();
+            s.display();
             break;
          }
          case 3: {
