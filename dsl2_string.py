@@ -76,7 +76,11 @@ def substr():
                 break
         else:
             j=0
-    print("Substring index: ", index)
+        
+    if (index==0):
+        print("substring not found")
+    else:       
+        print("Substring index: ", index)
 
 def freq_word():
     list1 = str1.split()
